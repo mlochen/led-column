@@ -16,7 +16,8 @@ The code in this repository is for an led effect lamp (type column). It consists
                            |      AtMega2560     |
                            +---------------------+
 
-![Photo](photo.jpg)
+Here is a demo of all the effects:
+![demo](demo.gif)
 
 The power supply and the controller are in the base. The whole structure has a height of 125cm and a diameter of 16cm.
 
