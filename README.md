@@ -1,6 +1,6 @@
-# led_column
+# led-column
 
-The code in this repository is for an led effect lamp (type column). It consists of a base, that contains the power supply and the microcontroller, and a light column, which is illuminated from the inside by an led strip with 300 LEDs. The strip is wrapped around a pipe with a diameter of 5cm, so that it forms a spiral.
+The code in this repository is for an led effect lamp (type column). It consists of a base, that contains the power supply and the microcontroller, and a light column, which is illuminated by an led strip with 300 LEDs. The strip is wrapped around a pipe with a diameter of 5cm, so that it forms a spiral and illuminates the diffusor with a diameter of 16cm from the inside.
 
 ## Hardware
     +--------------+                                 +---------------+
@@ -25,4 +25,3 @@ The power supply and the controller are in the base. The whole structure has a h
 
 1. run "make" in the base dir of the repo (needs avr-gcc)
 2. flash the resulting hex-file on the microcontroller (I use avrdude with an AVRISP mkII)
-
