@@ -27,24 +27,24 @@ void fire__init(void)
 
 void fire__update(double dt)
 {
-	ledstrip__clear();
-	ledstrip__set_mode(ADD);
+    ledstrip__clear();
+    ledstrip__set_mode(ADD);
 
-	double brightness = 0.7f + 0.3f * ((double)rand() / RAND_MAX);
-	uint16_t size;
+    double brightness = 0.7f + 0.3f * ((double)rand() / RAND_MAX);
+    uint16_t size;
 
-	size = 400 * brightness;
-	ledstrip__set_color(192, 32, 0);
-	column__ring(30, size, size / 2);
+    size = 400 * brightness;
+    ledstrip__set_color(192, 32, 0);
+    column__ring(30, size, size / 2);
 
-	size = 180 * brightness;
-	ledstrip__set_color(255, 255, 0);
-	column__ring(30, size, size / 2);
+    size = 180 * brightness;
+    ledstrip__set_color(255, 255, 0);
+    column__ring(30, size, size / 2);
 
-	size = 60 * brightness;
-	ledstrip__set_color(255, 255, 255);
-	column__ring(30, size, size / 2);
+    size = 60 * brightness;
+    ledstrip__set_color(255, 255, 255);
+    column__ring(30, size, size / 2);
 
-	ledstrip__show();
+    ledstrip__show();
 }
 

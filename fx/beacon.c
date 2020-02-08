@@ -25,19 +25,19 @@ void beacon__init(void)
 
 void beacon__update(double dt)
 {
-	static double t = 0;
-	t += dt * 2;
-	if (t >= 1)
-	{
-		t -= 1;
-	}
+    static double t = 0;
+    t += dt * 2;
+    if (t >= 1)
+    {
+        t -= 1;
+    }
 
-	ledstrip__clear();
-	ledstrip__set_mode(NORMAL);
+    ledstrip__clear();
+    ledstrip__set_mode(NORMAL);
 
-	ledstrip__set_color(0, 0, 255);
-	column__vbar(t * 360, 120, 30);
+    ledstrip__set_color(0, 0, 255);
+    column__vbar(t * 360, 120, 30);
 
-	ledstrip__show();
+    ledstrip__show();
 }
 

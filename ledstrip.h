@@ -23,11 +23,11 @@
 #define LED_COUNT 300
 
 enum color_mode {
-	NORMAL,
-	ADD,
-	SUBSTRACT,
-	MULTIPLY,
-	DIVIDE
+    NORMAL,
+    ADD,
+    SUBSTRACT,
+    MULTIPLY,
+    DIVIDE
 };
 
 void ledstrip__init(void);

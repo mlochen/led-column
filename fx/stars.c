@@ -29,18 +29,18 @@ void stars__init(void)
 
 void stars__update(double dt)
 {
-	static double t = 0;
-	t += dt;
+    static double t = 0;
+    t += dt;
 
-	ledstrip__sub(255 * dt / FADE_TIME);
-	ledstrip__set_mode(NORMAL);
+    ledstrip__sub(255 * dt / FADE_TIME);
+    ledstrip__set_mode(NORMAL);
 
-	while(t > (1.0f / STAR_RATE))
-	{
-		ledstrip__set_color(rand() % 256, rand() % 256, rand() % 256);
-		ledstrip__set_led(rand() % LED_COUNT);
-		t -= (1.0f / STAR_RATE);
-	}
-	ledstrip__show();
+    while(t > (1.0f / STAR_RATE))
+    {
+        ledstrip__set_color(rand() % 256, rand() % 256, rand() % 256);
+        ledstrip__set_led(rand() % LED_COUNT);
+        t -= (1.0f / STAR_RATE);
+    }
+    ledstrip__show();
 }
 

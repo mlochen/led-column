@@ -27,36 +27,36 @@
 
 int main()
 {
-	ledstrip__init();
+    ledstrip__init();
 
-	beacon__init();
-	colorwave__init();
-	fire__init();
-	lava__init();
-	rainbow__init();
-	stars__init();
+    beacon__init();
+    colorwave__init();
+    fire__init();
+    lava__init();
+    rainbow__init();
+    stars__init();
 
-	TCCR1B = (1 << CS12) | (1 << CS10);
+    TCCR1B = (1 << CS12) | (1 << CS10);
 
-	while(1)
-	{
-		static double t = 0;
-		double dt = TCNT1 / 15625.0f;
-		TCNT1 = 0;
-		t += dt;
-		if (t >= 60)
-		{
-			t = 0;
-		}
+    while(1)
+    {
+        static double t = 0;
+        double dt = TCNT1 / 15625.0f;
+        TCNT1 = 0;
+        t += dt;
+        if (t >= 60)
+        {
+            t = 0;
+        }
 
-		switch ((uint8_t)(t / 10))
-		{
-			case 0: beacon__update(dt); break;
-			case 1: colorwave__update(dt); break;
-			case 2: fire__update(dt); break;
-			case 3: lava__update(dt); break;
-			case 4: rainbow__update(dt); break;
-			case 5: stars__update(dt); break;
-		}
-	}
+        switch ((uint8_t)(t / 10))
+        {
+            case 0: beacon__update(dt); break;
+            case 1: colorwave__update(dt); break;
+            case 2: fire__update(dt); break;
+            case 3: lava__update(dt); break;
+            case 4: rainbow__update(dt); break;
+            case 5: stars__update(dt); break;
+        }
+    }
 }

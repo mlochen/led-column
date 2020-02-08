@@ -33,37 +33,37 @@ void rainbow__init(void)
 
 void rainbow__update(double dt)
 {
-	static double offset = 0;
-	offset += dt * (LED_COUNT / DURATION);
-	if (offset >= LED_COUNT)
-	{
-		offset -= LED_COUNT;
-	}
+    static double offset = 0;
+    offset += dt * (LED_COUNT / DURATION);
+    if (offset >= LED_COUNT)
+    {
+        offset -= LED_COUNT;
+    }
 
-	ledstrip__clear();
-	ledstrip__set_mode(NORMAL);
-	
-	for (uint16_t i = 0; i < LED_COUNT; i++)
-	{
-		double pos_r = fmod(offset, LED_COUNT);
-		double pos_g = fmod(offset + COLOR_DIST, LED_COUNT);
-		double pos_b = fmod(offset + COLOR_DIST * 2, LED_COUNT);
+    ledstrip__clear();
+    ledstrip__set_mode(NORMAL);
+    
+    for (uint16_t i = 0; i < LED_COUNT; i++)
+    {
+        double pos_r = fmod(offset, LED_COUNT);
+        double pos_g = fmod(offset + COLOR_DIST, LED_COUNT);
+        double pos_b = fmod(offset + COLOR_DIST * 2, LED_COUNT);
 
-		uint8_t r = pa2color(i, pos_r);
-		uint8_t g = pa2color(i, pos_g);
-		uint8_t b = pa2color(i, pos_b);
+        uint8_t r = pa2color(i, pos_r);
+        uint8_t g = pa2color(i, pos_g);
+        uint8_t b = pa2color(i, pos_b);
 
-		ledstrip__set_color(r, g, b);
-		ledstrip__set_led(i);
-	}
+        ledstrip__set_color(r, g, b);
+        ledstrip__set_led(i);
+    }
 
-	ledstrip__show();
+    ledstrip__show();
 }
 
 static uint8_t pa2color(uint16_t i, double p)
 {
-	double dist = fabs(i - p);
-	dist = (dist > (LED_COUNT / 2)) ? LED_COUNT - dist : dist;
-	return (dist > COLOR_DIST) ? 0 : 255 - (uint8_t)(dist * (255 / COLOR_DIST));
+    double dist = fabs(i - p);
+    dist = (dist > (LED_COUNT / 2)) ? LED_COUNT - dist : dist;
+    return (dist > COLOR_DIST) ? 0 : 255 - (uint8_t)(dist * (255 / COLOR_DIST));
 }
 

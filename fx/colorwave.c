@@ -29,19 +29,19 @@ void colorwave__init(void)
 
 void colorwave__update(double dt)
 {
-	static double t = 0;
-	t += dt;
-	if (t >= M_PI)
-	{
-		t -= M_PI;
-	}
+    static double t = 0;
+    t += dt;
+    if (t >= M_PI)
+    {
+        t -= M_PI;
+    }
 
-	double sint = (sin(t * 2) + 1) / 2;
+    double sint = (sin(t * 2) + 1) / 2;
 
-	ledstrip__clear();
-	ledstrip__set_mode(NORMAL);
-	ledstrip__set_color(0, 255 * sint, 255 - 255 * sint);
-	column__ring(sint * LED_COUNT, LED_COUNT / 2, LED_COUNT / 10);
-	ledstrip__show();
+    ledstrip__clear();
+    ledstrip__set_mode(NORMAL);
+    ledstrip__set_color(0, 255 * sint, 255 - 255 * sint);
+    column__ring(sint * LED_COUNT, LED_COUNT / 2, LED_COUNT / 10);
+    ledstrip__show();
 }
 
